@@ -1,0 +1,11 @@
+export 'package:flutter/material.dart';
+export 'package:flutter/services.dart';
+export 'package:get/get_navigation/src/root/get_material_app.dart';
+export 'dart:async';
+export 'package:velocity_x/velocity_x.dart';
+export 'package:get/get_core/src/get_main.dart';
+export 'package:dots_indicator/dots_indicator.dart';
+export 'package:lottie/lottie.dart';
+export 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+export 'package:hive/hive.dart';
+export 'package:path_provider/path_provider.dart';
