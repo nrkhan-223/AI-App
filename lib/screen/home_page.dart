@@ -1,5 +1,6 @@
 import 'package:chatgpt/consts/export.dart';
 import 'package:chatgpt/consts/pref.dart';
+import 'package:chatgpt/screen/widgets/card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -24,10 +25,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: "AiP".text.make(),
+          shadowColor: Colors.blue,
+          elevation: 1,
+          title: "AI Assistant".text.blue700.semiBold.size(20).make(),
           centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.brightness_4_outlined,
+                  color: Colors.blue,
+                  size: 27,
+                )),
+            10.widthBox,
+          ],
+          backgroundColor: Colors.white,
         ),
+        body: ListView(
+            padding: const EdgeInsets.only(left:  15.0,right: 15.0, top: 20),
+            children: CardType.values
+                .map((e) => CardView(
+                      cardType: e,
+                    ))
+                .toList()),
       ),
     );
   }
