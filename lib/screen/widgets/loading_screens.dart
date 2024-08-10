@@ -5,6 +5,6 @@ class LoadingScreens extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Lottie.asset('assets/lottie_file/ailoading.json',width: 100);
+    return Lottie.asset('assets/lottie_file/ailoading.json',width: 200);
   }
 }

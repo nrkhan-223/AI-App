@@ -9,3 +9,6 @@ export 'package:lottie/lottie.dart';
 export 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 export 'package:hive/hive.dart';
 export 'package:path_provider/path_provider.dart';
+export 'package:http/http.dart';
+export 'package:google_generative_ai/google_generative_ai.dart';
+export 'package:translator_plus/translator_plus.dart';

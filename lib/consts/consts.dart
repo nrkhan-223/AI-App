@@ -1,3 +1,3 @@
-import 'dart:ffi';
 
-const appname="AiP";
+const appname = "AiP";
+const apiKey ='';

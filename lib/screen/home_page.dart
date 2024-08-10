@@ -2,6 +2,7 @@ import 'package:chatgpt/consts/export.dart';
 import 'package:chatgpt/consts/pref.dart';
 import 'package:chatgpt/screen/widgets/card_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,14 +24,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          shadowColor: Colors.blue,
-          elevation: 1,
           title: "AI Assistant".text.blue700.semiBold.size(20).make(),
-          centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {},
@@ -41,7 +40,6 @@ class _HomePageState extends State<HomePage> {
                 )),
             10.widthBox,
           ],
-          backgroundColor: Colors.white,
         ),
         body: ListView(
             padding: const EdgeInsets.only(left:  15.0,right: 15.0, top: 20),

@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () {
+    Timer(const Duration(milliseconds: 3100), () {
       Get.offAll(
           () => Pref.onboardEnd ? const HomePage() : const OnboardScreen(),
           transition: Transition.leftToRight);
@@ -31,14 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              "assets/icons/logo.png",
-              scale: 4,
-              color: Colors.blue,
-            ),
-            10.heightBox,
             const LoadingScreens(),
-            20.heightBox,
+            30.heightBox,
             const Text(
               'Welcome to AiP!',
               style: TextStyle(

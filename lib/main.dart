@@ -1,3 +1,4 @@
+import 'package:chatgpt/consts/consts.dart';
 import 'package:chatgpt/screen/splash_screen/splash_screen.dart';
 import 'consts/export.dart';
 import 'consts/pref.dart';
@@ -19,9 +20,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: appname,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: AppBarTheme(
+          shadowColor: Colors.blue,
+          elevation: 1,
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          iconTheme: const IconThemeData(color: Colors.blue),
+            titleTextStyle: TextStyle(
+              color: Colors.blue.shade700,fontWeight: FontWeight.w500,fontSize: 18
+            )
+        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
       home: const SplashScreen(),
