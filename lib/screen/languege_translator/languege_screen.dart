@@ -77,31 +77,44 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 ),
               ),
               20.heightBox,
-              TextField(
-                maxLines: 5,
-                controller: controller.textC,
-                onTapOutside: (e) => FocusScope.of(context).unfocus(),
-                decoration: InputDecoration(
-                  isDense: true,
-                  enabledBorder: OutlineInputBorder(
-                      borderSide:
-                           BorderSide(color: Colors.orange.shade500, width: 1.2),
-                      borderRadius: BorderRadius.circular(
-                        15.0,
-                      )),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide:  BorderSide(
-                        width: 1.2,
-                        color: Colors.orange.shade500,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    width: 1.2,
+                    color: Colors.orange.shade500,
+                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(15.0) //
                       ),
-                      borderRadius: BorderRadius.circular(
-                        15.0,
-                      )),
-                  hintText: 'Enter your Text...',
+                ),
+                child: Column(
+                  children: [
+                    TextField(
+                      maxLines: 5,
+                      controller: controller.textC,
+                      onTapOutside: (e) => FocusScope.of(context).unfocus(),
+                      decoration: const InputDecoration(
+                        border: InputBorder.none,
+                        isDense: true,
+                        hintText: 'Enter your Text...',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 50,
+                      child: Row(
+                        children: [
+                          IconButton(onPressed: (){}, icon: const Icon(Icons.mic_none_outlined)),
+                          IconButton(onPressed: (){}, icon: const Icon(Icons.volume_up_rounded)),
+                          const Spacer(),
+                          IconButton(onPressed: (){}, icon: const Icon(Icons.copy_all)),
+                        ],
+                      ),
+                    )
+                  ],
                 ),
               ),
               20.heightBox,
-              _translateResult(),
+              Obx(()=> _translateResult()),
               30.heightBox,
               ElevatedButton(
                   onPressed: controller.googleTranslate,
@@ -115,27 +128,37 @@ class _LanguageScreenState extends State<LanguageScreen> {
 
   Widget _translateResult() => switch (controller.status.value) {
         Status.none => const SizedBox(),
-        Status.complete => TextFormField(
-          controller: controller.resultC,
-          maxLines: null,
-          onTapOutside: (e) => FocusScope.of(context).unfocus(),
-          decoration:  InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                  borderSide:
-                  const BorderSide(color: Colors.blue, width: 1.2),
-                  borderRadius: BorderRadius.circular(
-                    15.0,
-                  )),
-              focusedBorder: OutlineInputBorder(
-                  borderSide:  const BorderSide(
-                    width: 1.2,
-                    color: Colors.blue,
+        Status.complete => Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1.2, color: Colors.blue),
+              borderRadius: const BorderRadius.all(Radius.circular(15.0) //
                   ),
-                  borderRadius: BorderRadius.circular(
-                    15.0,
-                  )),
+            ),
+            child: Column(
+              children: [
+                TextFormField(
+                  readOnly: true,
+                  controller: controller.resultC,
+                  maxLines: 5,
+                  onTapOutside: (e) => FocusScope.of(context).unfocus(),
+                  decoration: const InputDecoration(
+                    border: InputBorder.none
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                  child: Row(
+                    children: [
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.volume_up_rounded)),
+                      const Spacer(),
+                      IconButton(onPressed: (){}, icon: const Icon(Icons.copy_all)),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
         Status.loading => const Align(child: LoadingScreens())
       };
 }

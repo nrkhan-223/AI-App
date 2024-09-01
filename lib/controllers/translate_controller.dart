@@ -1,6 +1,7 @@
 
 
 import 'package:chatgpt/consts/export.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:get/get.dart';
 
 import '../api/api.dart';
@@ -10,6 +11,7 @@ enum Status { none, loading, complete }
 class TranslateController extends GetxController{
   final textC=TextEditingController();
   final resultC=TextEditingController();
+  final FlutterTts _flutterTts=FlutterTts();
 
   final from=''.obs,to=''.obs;
   final status = Status.none.obs;
@@ -176,6 +178,16 @@ class TranslateController extends GetxController{
   //     if (textC.text.isEmpty) MyDialog.info('Type Something to Translate!');
   //   }
   // }
+  void speak()async{
+    await _flutterTts.setLanguage(from.value);
+
+    await _flutterTts.setSpeechRate(1.0);
+
+    await _flutterTts.setVolume(1.0);
+
+    await _flutterTts.setPitch(1.0);
+  }
+
 
   void swapLanguages() {
     if (to.isNotEmpty && from.isNotEmpty) {
